@@ -17,6 +17,7 @@ struct CombineLatestInUI : View {
 		VStack {
 			TextField("hi", text: $bo.first)
 				.lineLimit(5)
+			//outdated below
 			TextField($bo.first)
 			TextField($bo.second)
 			Text(bo.first == bo.second ? "same" : "different")
