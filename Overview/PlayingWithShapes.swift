@@ -23,45 +23,49 @@ struct PlayingWithShapes : View {
 				.stroke(Color.pink, lineWidth: 30)
 //				.scaleEffect(spinning ? 0.5 : 0.9)
 //				.scaleEffect(1)
-				.animation(Animation.basic(duration: 2, curve: .linear).repeatForever(autoreverses: true))
+				.animation(Animation.linear(duration: 2).repeatForever(autoreverses: true))
 				.frame(width: 300, height: 300)
 				.rotationEffect(.degrees(spinning ? 360: 0))
-				.animation(Animation.basic(duration: 0.8, curve: .linear).repeatForever(autoreverses: false))
+				.animation(Animation.linear(duration: 2).repeatForever(autoreverses: false))
 				
 				.padding()
 				.rotation3DEffect(.degrees(45), axis: (x: 1, y: 0, z: 0))
-				.animation(Animation.basic(duration: 4, curve: .linear).repeatForever(autoreverses: false))
+				.animation(Animation.linear(duration: 2).repeatForever(autoreverses: false))
 			
 			
 			Circle()
 				.trim(from: 0.5, to: 1)
 				.stroke(Color.green, lineWidth: 10)
 //				.scaleEffect(spinning ? 0.5 : 1.9)
-				.animation(Animation.basic(duration: 2, curve: .linear).repeatForever(autoreverses: true))
+				.animation(Animation.linear(duration: 2).repeatForever(autoreverses: true))
 				.frame(width: 238, height: 238)
 				.rotationEffect(.degrees(spinning ? 360: 0))
-				.animation(Animation.basic(duration: 1.6, curve: .linear).repeatForever(autoreverses: false))
+				.animation(Animation.linear(duration: 4).repeatForever(autoreverses: false))
 				.padding()
 				.rotation3DEffect(.degrees(45), axis: (x: 1, y: 0, z: 0))
-				.animation(Animation.basic(duration: 4, curve: .linear).repeatForever(autoreverses: false))
+				.animation(Animation.linear(duration: 4).repeatForever(autoreverses: false))
 			Circle()
 				.trim(from: 0.5, to: 1)
 				.stroke(Color.blue, lineWidth: 10)
 				//				.scaleEffect(spinning ? 0.5 : 0.9)
-				.animation(Animation.basic(duration: 2, curve: .linear).repeatForever(autoreverses: true))
+				.animation(Animation.linear(duration: 2).repeatForever(autoreverses: true))
 				.frame(width: 176, height: 176)
 				.rotationEffect(.degrees(spinning ? 0: 360))
-				.animation(Animation.basic(duration: 0.8, curve: .linear).repeatForever(autoreverses: false))
+				.animation(Animation.linear(duration: 0.8).repeatForever(autoreverses: false))
 				.padding()
 				.rotation3DEffect(.degrees(45), axis: (x: 1, y: 0, z: 0))
-				.animation(Animation.basic(duration: 4, curve: .linear).repeatForever(autoreverses: false))
+				.animation(Animation.linear(duration: 4).repeatForever(autoreverses: false))
 		}
 		.padding()
 //			.animation(nil)
+			
 			.onAppear {
-				withAnimation(Animation.basic().repeatForever(autoreverses: true)) {
+//				withAnimation(Animation.default.repeatForever(autoreverses: true)) {
+				DispatchQueue.main.async {
 					self.spinning.toggle()
 				}
+					
+//				}
 				
 		
 		}

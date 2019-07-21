@@ -94,12 +94,12 @@ struct FormView : View {
 //					PresentationLink(destination: PresentedView(), label: "test")
 				}
 				Section {
-					TextField($text)
+					TextField("what", text: $text)
 				}
-				Section {
+//				Section {
 //					DatePicker(
-					DatePicker($date, minimumDate: Calendar.current.date(byAdding: .year, value: -1, to: Date()), maximumDate: Calendar.current.date(byAdding: .year, value: 1, to: Date()), displayedComponents: .date)
-				}
+//					DatePicker($date, minimumDate: Calendar.current.date(byAdding: .year, value: -1, to: Date()), maximumDate: Calendar.current.date(byAdding: .year, value: 1, to: Date()), displayedComponents: .date)
+//				}
 				
 				}
 				

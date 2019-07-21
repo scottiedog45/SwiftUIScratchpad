@@ -33,8 +33,11 @@ class FormViewLogic : BindableObject {
 	public var num = [1,2,3,4,5] { didSet { willChange.send() } }
 	
 	private(set) var basic : Basic? =  nil { didSet { willChange.send() } }
+
 	
 	func getData()  {
+		
+//		precondition("" == "5")
 		
 		let url = URLRequest(url: URL(string: "https://jsonplaceholder.typicode.com/todos/1")!)
 

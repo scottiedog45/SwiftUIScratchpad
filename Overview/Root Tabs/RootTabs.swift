@@ -10,30 +10,30 @@ import SwiftUI
 
 struct RootTabs : View {
     var body: some View {
-		VStack {
+//		VStack {
 //			Text("What")
 //		Text("what")
 		TabbedView {
 			PlayingWithShapes()
 				.tabItem {
 					Text("shapes")
-			}
-//			Ani()
-//				.tabItemLabel(
-//					Text("Ani")
-//			).tag(0)
+			}.tag(1)
+			Ani()
+				.tabItemLabel(
+					Text("Ani")
+			).tag(0)
 			FormView()
 				.tabItem {
 					Text("Form")
-			}
-//			CombineLatestInUI(bo: CombineLatestPublisher())
-//			.tabItemLabel(Text("Gestures"))
-//			.tag(2)
+			}.tag(3)
+			DraggableCircle()
+			.tabItemLabel(Text("Gestures"))
+			.tag(2)
 ////			SignInWithAppleScreen()
 ////			.tabItemLabel(Text("SIWA"))
 ////			.tag(3)
 			}
-		}
+//		}
     }
 }
 

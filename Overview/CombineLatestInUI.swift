@@ -11,6 +11,8 @@ import Combine
 
 struct CombineLatestInUI : View {
 	
+	
+	
 	@ObjectBinding var bo : CombineLatestPublisher
 	
     var body: some View {
