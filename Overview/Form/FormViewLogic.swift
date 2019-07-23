@@ -24,6 +24,11 @@ struct Basic : Codable {
 	}
 }
 
+struct SomeErrors: Error {
+	var code : Int
+}
+
+
 class FormViewLogic : BindableObject {
 	
 	var willChange : PassthroughSubject<Void, Never> = PassthroughSubject()
@@ -34,7 +39,6 @@ class FormViewLogic : BindableObject {
 	
 	private(set) var basic : Basic? =  nil { didSet { willChange.send() } }
 
-	
 	func getData()  {
 		
 //		precondition("" == "5")
@@ -42,11 +46,28 @@ class FormViewLogic : BindableObject {
 		let url = URLRequest(url: URL(string: "https://jsonplaceholder.typicode.com/todos/1")!)
 
 		_ = URLSession.shared.dataTaskPublisher(for: url)
-			.map { $0.data }
+			.tryMap { data, response  in
+				if let r = response as? HTTPURLResponse {
+					switch r.statusCode {
+					case 200...201:
+						return data
+					default:
+						fatalError()
+					}
+				}
+				return data
+			}
 			.decode(type: Basic.self, decoder: JSONDecoder())
 			.receive(on : RunLoop.main)
-			.sink(receiveCompletion: { (error) in
-				print(error)
+			.sink(receiveCompletion: { (response) in
+				switch response {
+				case .failure(let error):
+					print("error: \(error)")
+				case .finished:
+					break
+				}
 			}, receiveValue: { self.basic = $0 })
+		
+		
 	}
 }

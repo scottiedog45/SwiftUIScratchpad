@@ -29,6 +29,8 @@ struct FormView : View {
 	
 	@ObjectBinding var combineExample = FormViewLogic()
 	
+	@ObjectBinding var s = NetworkingState()
+	
 	@State var isPresented = false
 	
 	@State var selectedStrength = 0
@@ -42,78 +44,69 @@ struct FormView : View {
 	@State var int = 4
 	
 	var body: some View {
-		NavigationView {
-//			PresentationLink(destination: PresentedView(), label: "hi")
-			Form {
-				Section(header: Text("multiline")) {
-					Text("what")
-					MultilineTextView(text: $text)
-//						.height(400)
-				}
-				Section(header: Text("test")) {
-					Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse est leo, vehicula eu eleifend non, auctor ut arcu")
-						.lineLimit(nil)
-				}
-				Section(header: Text("Section Title")) {
-					Picker(selection: $selectedStrength, label: Text("Strength")) {
-						ForEach(0 ..< strengths.count) {
-							Text(self.strengths[$0]).tag($0)
-							
-						}
-					}
-				}
-				Section(header: Text("Sleep tracking settings")) {
-					Toggle(isOn: $boolean) {
-						Text("Sleep tracking:")
-					}
-					
-					//min max stepper value
-					Stepper(value: $combineExample.score, in: 0...12) {
-						Text("Sleep goal is \(combineExample.score) hours")
-					}
-				}
-				
-				if true {
-					Section {
-						Button(action: {
-							print("hi")
-							self.isPresented = true
-							print(self.isPresented)
-						}) {
-							Text("\(combineExample.basic?.title ?? "hi")")
-						}
-					}
-				}
-				Section {
-					NavigationLink(destination: Ani()) {
-						Text(text)
-					}
-				}
-				Section {
-					Text("test")
-//					PresentationLink(destination: PresentedView(), label: "test")
-				}
-				Section {
-					TextField("what", text: $text)
-				}
-//				Section {
-//					DatePicker(
-//					DatePicker($date, minimumDate: Calendar.current.date(byAdding: .year, value: -1, to: Date()), maximumDate: Calendar.current.date(byAdding: .year, value: 1, to: Date()), displayedComponents: .date)
+		Text("hi")
+//		NavigationView {
+////			PresentationLink(destination: PresentedView(), label: "hi")
+//			Form {
+//				Section(header: Text("multiline")) {
+//					Text("")
+//					MultilineTextView(text: $text)
+////						.height(400)
 //				}
-				
-				}
-				
-			
-			.navigationBarTitle(Text("Select your cheese"))
-			
-			}
-			
-			
+//				Section(header: Text("test")) {
+//					Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse est leo, vehicula eu eleifend non, auctor ut arcu")
+//						.lineLimit(nil)
+//				}
+//				Section(header: Text("Section Title")) {
+//					Picker(selection: $selectedStrength, label: Text("Strength")) {
+//						ForEach(0 ..< strengths.count) {
+//							Text(self.strengths[$0]).tag($0)
+//
+//						}
+//					}
+//				}
+//				Section(header: Text("Sleep tracking settings")) {
+//					Toggle(isOn: $boolean) {
+//						Text("Sleep tracking:")
+//					}
+//
+//					//min max stepper value
+//					Stepper(value: $combineExample.score, in: 0...12) {
+//						Text("Sleep goal is \(combineExample.score) hours")
+//					}
+//				}
+//
+//
+//				Section {
+//					NavigationLink(destination: Ani()) {
+//						Text(text)
+//					}
+//				}
+//				Section {
+//					Text("fail")
+////					PresentationLink(destination: PresentedView(), label: "test")
+//				}
+//				Section {
+//					TextField("what", text: $text)
+//				}
+////				Section {
+////					DatePicker(
+////					DatePicker($date, minimumDate: Calendar.current.date(byAdding: .year, value: -1, to: Date()), maximumDate: Calendar.current.date(byAdding: .year, value: 1, to: Date()), displayedComponents: .date)
+////				}
+//
+//				}
+//
+//
+//			.navigationBarTitle(Text("Select your cheese"))
+//
+//			}
+//
+//
 			.onAppear {
-				self.combineExample.getData()
+//				self.combineExample.getData()
+				self.s.getTokenOldSchool()
 //				CombineNotification().setStuffUp()
 		}
-		
 //		.edgesIgnoringSafeArea(.top)
 	}
 }

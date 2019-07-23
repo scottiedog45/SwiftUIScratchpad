@@ -12,6 +12,7 @@
 		0509486422C5A544004917F0 /* RootTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0509486322C5A544004917F0 /* RootTabs.swift */; };
 		0509486622C5A965004917F0 /* Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0509486522C5A965004917F0 /* Gestures.swift */; };
 		0509486822C6416D004917F0 /* Pages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0509486722C6416D004917F0 /* Pages.swift */; };
+		050CE23022E6619300D90C10 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050CE22F22E6619300D90C10 /* Networking.swift */; };
 		05147AD122C6AE9400EECC96 /* CombineNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05147AD022C6AE9400EECC96 /* CombineNotification.swift */; };
 		05147AD522C6E01E00EECC96 /* CombineLatestPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05147AD422C6E01E00EECC96 /* CombineLatestPublisher.swift */; };
 		05147AD722C7AB7100EECC96 /* CombineLatestInUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05147AD622C7AB7100EECC96 /* CombineLatestInUI.swift */; };
@@ -59,6 +60,7 @@
 		0509486322C5A544004917F0 /* RootTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabs.swift; sourceTree = "<group>"; };
 		0509486522C5A965004917F0 /* Gestures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gestures.swift; sourceTree = "<group>"; };
 		0509486722C6416D004917F0 /* Pages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pages.swift; sourceTree = "<group>"; };
+		050CE22F22E6619300D90C10 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Networking.swift; path = ../../../../../../System/Volumes/Data/Users/scottotoole/Desktop/Overview/Overview/NetworkingDraft/Networking.swift; sourceTree = "<group>"; };
 		05147AD022C6AE9400EECC96 /* CombineNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineNotification.swift; sourceTree = "<group>"; };
 		05147AD422C6E01E00EECC96 /* CombineLatestPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineLatestPublisher.swift; sourceTree = "<group>"; };
 		05147AD622C7AB7100EECC96 /* CombineLatestInUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineLatestInUI.swift; sourceTree = "<group>"; };
@@ -116,6 +118,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		050CE22E22E6617E00D90C10 /* NetworkingDraft */ = {
+			isa = PBXGroup;
+			children = (
+				050CE22F22E6619300D90C10 /* Networking.swift */,
+			);
+			path = NetworkingDraft;
+			sourceTree = "<group>";
+		};
 		05147AE122C9A94100EECC96 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +209,7 @@
 		05BD617822C264520099C48B /* Overview */ = {
 			isa = PBXGroup;
 			children = (
+				050CE22E22E6617E00D90C10 /* NetworkingDraft */,
 				0599D7BE22D14C94006A5AB3 /* Gesture */,
 				0599D7BD22D14C86006A5AB3 /* Animations */,
 				0599D7BC22D1306F006A5AB3 /* Sign In With Apple */,
@@ -390,6 +401,7 @@
 				0509486422C5A544004917F0 /* RootTabs.swift in Sources */,
 				05147ADE22C990AF00EECC96 /* UserStruct.swift in Sources */,
 				05147AE022C997A200EECC96 /* SIWAViewController.swift in Sources */,
+				050CE23022E6619300D90C10 /* Networking.swift in Sources */,
 				05BD617A22C264520099C48B /* AppDelegate.swift in Sources */,
 				0509486222C570A4004917F0 /* Animation.swift in Sources */,
 				0599D7C022D1809A006A5AB3 /* ThreadPractice.swift in Sources */,
