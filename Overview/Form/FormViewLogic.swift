@@ -33,6 +33,10 @@ class FormViewLogic : BindableObject {
 	
 	var willChange : PassthroughSubject<Void, Never> = PassthroughSubject()
 	
+	var stuff : PassthroughSubject<Basic, Never> = PassthroughSubject()
+	
+	var stuff2 : PassthroughSubject<Basic, Never> = PassthroughSubject()
+	
 	public var score = 0 { willSet { willChange.send() } }
 	
 	public var num = [1,2,3,4,5] { didSet { willChange.send() } }
@@ -40,6 +44,31 @@ class FormViewLogic : BindableObject {
 	private(set) var basic : Basic? =  nil { didSet { willChange.send() } }
 
 	func getData()  {
+		
+		let urla = URLRequest(url: URL(string: "https://jsonplaceholder.typicode.com/todos/1")!)
+				
+				let urlb = URLRequest(url: URL(string: "https://jsonplaceholder.typicode.com/todos/12")!)
+
+				let fra = URLSession.shared.dataTaskPublisher(for: urla)
+					.map {$0.data}
+					.decode(type: Basic.self, decoder: JSONDecoder())
+				
+				let sha = URLSession.shared.dataTaskPublisher(for: urlb)
+					.map {$0.data}
+					.decode(type: Basic.self, decoder: JSONDecoder())
+					
+				Publishers.Zip(sha, fra)
+					.receive(on: RunLoop.main)
+					.sink(receiveCompletion: { (completion) in
+						switch completion {
+						case .failure(let nev):
+							print(nev)
+						default:
+							print("complete")
+						}
+					}, receiveValue: { (response) in
+						print(response)
+					})
 		
 //		precondition("" == "5")
 		
@@ -66,7 +95,7 @@ class FormViewLogic : BindableObject {
 				case .finished:
 					break
 				}
-			}, receiveValue: { self.basic = $0 })
+			}, receiveValue: { print($0) })
 		
 		
 	}

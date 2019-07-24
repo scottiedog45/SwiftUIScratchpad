@@ -103,7 +103,7 @@ struct FormView : View {
 //
 //
 			.onAppear {
-//				self.combineExample.getData()
+				self.combineExample.getData()
 				self.s.getTokenOldSchool()
 //				CombineNotification().setStuffUp()
 		}
